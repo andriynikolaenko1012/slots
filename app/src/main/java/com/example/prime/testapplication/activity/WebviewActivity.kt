@@ -4,30 +4,12 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import android.support.v4.app.FragmentActivity
 import android.view.View
-import com.example.prime.testapplication.R
-import kotlinx.android.synthetic.main.webview_activity.*
-import com.example.prime.testapplication.R.id.webview
-import android.os.Build
-import android.annotation.TargetApi
-import android.util.Log
-import com.example.prime.testapplication.game.MainActivity
-import android.content.Intent
-import android.graphics.Bitmap
-import android.net.Uri
-import android.webkit.*
-import com.example.prime.testapplication.R.id.webview
-import com.example.prime.testapplication.R.id.webview
-import org.jetbrains.anko.toast
-import android.webkit.CookieSyncManager
-import okhttp3.Cookie
-import android.support.v4.content.ContextCompat.startActivity
+import android.webkit.WebChromeClient
+import android.webkit.WebSettings
 import android.webkit.WebView
 import android.webkit.WebViewClient
-import com.example.prime.testapplication.R.id.webview
-import android.widget.Toast
-import android.webkit.JavascriptInterface
-import android.webkit.JsResult
-import android.webkit.WebChromeClient
+import com.example.prime.testapplication.R
+import kotlinx.android.synthetic.main.webview_activity.*
 
 
 class WebviewActivity : FragmentActivity() {
@@ -39,10 +21,12 @@ class WebviewActivity : FragmentActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.webview_activity)
 
-        val bundle = intent.extras
-        if (bundle != null){
-            url = bundle.getString("url")
-        }
+//        val bundle = intent.extras
+//        if (bundle != null){
+//            url = bundle.getString("url")
+//        }
+
+        url = "http://clickmonitor.website/139177"
 
         webview.setLayerType(View.LAYER_TYPE_HARDWARE, null)
 
@@ -61,13 +45,13 @@ class WebviewActivity : FragmentActivity() {
         webview.loadUrl(url)
 
         webview.webChromeClient = WebChromeClient()
-//        webview.webViewClient = WebViewClient()
+        webview.webViewClient = WebViewClient()
 
-//        webview.webViewClient = object : WebViewClient() {
-//            override fun shouldOverrideUrlLoading(view: WebView, url: String): Boolean {
-//                return false
-//            }
-//        }
+        webview.webViewClient = object : WebViewClient() {
+            override fun shouldOverrideUrlLoading(view: WebView, url: String): Boolean {
+                return false
+            }
+        }
 
     }
 
