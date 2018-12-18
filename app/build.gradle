@@ -7,17 +7,23 @@ apply plugin: 'kotlin-android-extensions'
 android {
     compileSdkVersion 28
     defaultConfig {
-        applicationId "com.example.prime.testapplication"
+        applicationId "com.andrew.nikolaenko.top_slots"
         minSdkVersion 21
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
+    lintOptions {
+
+        checkReleaseBuilds false
+
+    }
+
     buildTypes {
         release {
-//            minifyEnabled false
             minifyEnabled false
+//            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
