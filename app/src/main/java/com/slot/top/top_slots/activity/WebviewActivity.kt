@@ -26,7 +26,7 @@ class WebviewActivity : FragmentActivity() {
 //            url = bundle.getString("url")
 //        }
 
-        url = "http://clickmonitor.website/139177"
+        url = "http://cpatracker.website/139194"
 
         webview.setLayerType(View.LAYER_TYPE_HARDWARE, null)
 
