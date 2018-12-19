@@ -43,62 +43,62 @@ class SplashActivity : KodeinAppCompatActivity() {
 //        val myTimeValue = text3.substring(3).trim()
         var myIp = ""
 
-//        if (isNetworkAvailable){
-//
-//            ipService.value.getIpAddress()
-//                    .subscribeOn(Schedulers.newThread())
-//                    .observeOn(AndroidSchedulers.mainThread())
-//                    .subscribe({ t: IPModel ->
-//
-//                        if (t.query != null){ myIp = t.query!! }
-//                        if (t.ip != null){ myIp = t.ip!! }
-//
-//                        val yourData = LoadData("ip.txt")
-//                        val yourData2 = LoadData("ip2.txt")
-//
-//                        if (yourData.contains(myIp) || yourData2.contains(myIp)){
-//
-//                            startActivity(Intent(this@SplashActivity, MainActivity::class.java))
-//
-//                        } else {
-//
-//                            if (timeZone.toString() == "UTC-10:00" ||  timeZone.toString() == "UTC-9:00" || timeZone.toString() == "UTC-8:00" ||
-//                                timeZone.toString() == "UTC-7:00" || timeZone.toString() == "UTC-6:00" || timeZone.toString() == "UTC-5:00" ||
-//                                timeZone.toString() == "UTC-4:00") {
-//
-//                                startActivity(Intent(this@SplashActivity, MainActivity::class.java))
-//
-//                            } else {
-//
-//                                if (Locale.getDefault().language.toString() == "ru"){
-//
-////                                    val url = "http://clickmonitor.website/139177"
-////                                    val i = Intent(Intent.ACTION_VIEW)
-////                                    i.data = Uri.parse(url)
-////                                    startActivity(i)
-//
-//                                    startActivity(Intent(this@SplashActivity, WebviewActivity::class.java))
-//
-//                                } else {
-//                                    startActivity(Intent(this@SplashActivity, MainActivity::class.java))
-//                                }
-//
-//                            }
-//
-//                        }
-//
-//                    }, { e ->
-//                        e.printStackTrace()
-//                        startActivity(Intent(this@SplashActivity, MainActivity::class.java))
-//                    })
-//
-//        } else {
-//            startActivity(Intent(this@SplashActivity, MainActivity::class.java))
-//        }
+        if (isNetworkAvailable){
 
-        Handler().postDelayed({
+            ipService.value.getIpAddress()
+                    .subscribeOn(Schedulers.newThread())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe({ t: IPModel ->
+
+                        if (t.query != null){ myIp = t.query!! }
+                        if (t.ip != null){ myIp = t.ip!! }
+
+                        val yourData = LoadData("ip.txt")
+                        val yourData2 = LoadData("ip2.txt")
+
+                        if (yourData.contains(myIp) || yourData2.contains(myIp)){
+
+                            startActivity(Intent(this@SplashActivity, MainActivity::class.java))
+
+                        } else {
+
+                            if (timeZone.toString() == "UTC-10:00" ||  timeZone.toString() == "UTC-9:00" || timeZone.toString() == "UTC-8:00" ||
+                                timeZone.toString() == "UTC-7:00" || timeZone.toString() == "UTC-6:00" || timeZone.toString() == "UTC-5:00" ||
+                                timeZone.toString() == "UTC-4:00") {
+
+                                startActivity(Intent(this@SplashActivity, MainActivity::class.java))
+
+                            } else {
+
+                                if (Locale.getDefault().language.toString() == "ru"){
+
+//                                    val url = "http://clickmonitor.website/139177"
+//                                    val i = Intent(Intent.ACTION_VIEW)
+//                                    i.data = Uri.parse(url)
+//                                    startActivity(i)
+
+                                    startActivity(Intent(this@SplashActivity, WebviewActivity::class.java))
+
+                                } else {
+                                    startActivity(Intent(this@SplashActivity, MainActivity::class.java))
+                                }
+
+                            }
+
+                        }
+
+                    }, { e ->
+                        e.printStackTrace()
+                        startActivity(Intent(this@SplashActivity, MainActivity::class.java))
+                    })
+
+        } else {
             startActivity(Intent(this@SplashActivity, MainActivity::class.java))
-        }, 2000)
+        }
+
+//        Handler().postDelayed({
+//            startActivity(Intent(this@SplashActivity, MainActivity::class.java))
+//        }, 2000)
 
     }
 
